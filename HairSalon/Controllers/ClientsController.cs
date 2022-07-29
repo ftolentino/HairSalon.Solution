@@ -7,67 +7,67 @@ using System.Linq;
 
 namespace HairSalon.Controllers
 {
-  public class RestaurantsController : Controller
+  public class ClientsController : Controller
   {
-    private readonly BestRestaurantContext _db;
+    private readonly HairSalonContext _db;
 
-    public RestaurantsController(BestRestaurantContext db)
+    public ClientsController(HairSalonContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      List<Restaurant> model = _db.Restaurants.Include(restaurant => restaurant.Cuisine).ToList();
+      List<Client> model = _db.Clients.Include(client => client.Stylist).ToList();
       return View(model);
     }
 
     public ActionResult Create()
     {
-      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Restaurant restaurant)
+    public ActionResult Create(Client client)
     {
-      _db.Restaurants.Add(restaurant);
+      _db.Clients.Add(client);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      return View(thisRestaurant);
+      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      return View(thisClient);
     }
 
     public ActionResult Edit(int id)
     {
-      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
-      return View(thisRestaurant);
+      var thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+      return View(thisClient);
     }
 
     [HttpPost]
-    public ActionResult Edit(Restaurant restaurant)
+    public ActionResult Edit(Client client)
     {
-      _db.Entry(restaurant).State = EntityState.Modified;
+      _db.Entry(client).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      return View(thisRestaurant);
+      var thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      return View(thisClient);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      _db.Restaurants.Remove(thisRestaurant);
+      var thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      _db.Clients.Remove(thisClient);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -81,7 +81,7 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult ShowSearch(string searchPhrase)
     {
-      List<Restaurant> model = _db.Restaurants.Where(p => p.Name.ToLower().Contains(searchPhrase.ToLower()) || p.Description.ToLower().Contains(searchPhrase.ToLower()) || p.Cuisine.Name.ToLower().Contains(searchPhrase.ToLower()) || p.Location.ToLower().Contains(searchPhrase.ToLower())).ToList(); 
+      List<Client> model = _db.Clients.Where(p => p.Name.ToLower().Contains(searchPhrase.ToLower()) || p.Description.ToLower().Contains(searchPhrase.ToLower()) || p.Stylist.Name.ToLower().Contains(searchPhrase.ToLower()) || p.Location.ToLower().Contains(searchPhrase.ToLower())).ToList(); 
       return View("Index", model);
     }
   }
