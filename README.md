@@ -4,7 +4,7 @@
 
 ## Description
 
-Best Restaurant is an application allowing the user to create, edit, and store a list of restaurants organized by cuisine type. 
+Hair Salon is an application allowing a salon owner to create, edit, and store a list of clients organized by which stylist they belong to. 
 
 
 ## Logistics
@@ -22,7 +22,7 @@ Best Restaurant is an application allowing the user to create, edit, and store a
 2. Navigate to project directory from your terminal by entering the following:
 
 ```
-cd BestRestaurant.Solution
+cd HairSalon.Solution
 ```
 
 3. Download [.NET Core](https://docs.microsoft.com/en-us/dotnet/core/install/windows?pivots=os-windows&tabs=net60)
@@ -30,7 +30,7 @@ cd BestRestaurant.Solution
 4.  Install:
 `dotnet tool install -g`
 
-5. Navigate to `BestRestaurant` directory and run `$ dotnet run build` in your terminal.
+5. Navigate to `HairSalon` directory and run `$ dotnet run build` in your terminal.
 
 6. Within the same project folder enter `dotnet watch run` to open a live server.
 
@@ -52,7 +52,7 @@ cd BestRestaurant.Solution
 *  Create `appsettings.json` file in top of project directory and copy in the following, with the password:
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=best_restaurant;uid=root;pwd=[YOUR_PASSWORD_HERE];"
+    "DefaultConnection": "Server=localhost;Port=3306;database=filmer_tolenino;uid=root;pwd=[YOUR_PASSWORD_HERE];"
   }
 }
 
