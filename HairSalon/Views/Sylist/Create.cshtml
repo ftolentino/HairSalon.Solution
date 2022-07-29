@@ -2,20 +2,20 @@
   Layout = "_Layout";
 }
 
-@model BestRestaurant.Models.Cuisine
+@model HairSalon.Models.Stylist
 
 
-<h1>Add a cuisine</h1>
+<h1>Add a stylist</h1>
 
 @using (Html.BeginForm())
 {
   <p>@Html.LabelFor(model => model.Name)</p>
   <p>@Html.TextBoxFor(model => model.Name)</p>
 
-  <input type="submit" value="Add new cuisine" class="btn btn-primary" />
+  <input type="submit" value="Add new stylist" class="btn btn-primary" />
 }
 <br>
-<p>@Html.ActionLink("Back to cuisines", "Index")</p>
+<p>@Html.ActionLink("Back to stylists", "Index")</p>
 
 
 <p><a href="/">Back home</a></p>
