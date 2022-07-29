@@ -6,18 +6,18 @@ using System.Linq;
 
 namespace HairSalon.Controllers
 {
-  public class CuisinesController : Controller
+  public class StylistsController : Controller
   {
-    private readonly BestRestaurantContext _db;
+    private readonly HairSalonContext _db;
 
-    public CuisinesController(BestRestaurantContext db)
+    public StylistsController(HairSalonContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      List<Cuisine> model = _db.Cuisines.ToList();
+      List<Stylist> model = _db.Stylists.ToList();
       return View(model);
     }
 
@@ -27,43 +27,43 @@ namespace HairSalon.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Cuisine cuisine)
+    public ActionResult Create(Stylist stylist)
     {
-      _db.Cuisines.Add(cuisine);
+      _db.Stylists.Add(stylist);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-      Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
-      return View(thisCuisine);
+      Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+      return View(thisStylist);
     }
     public ActionResult Edit(int id)
     {
-      var thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
-      return View(thisCuisine);
+      var thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+      return View(thisStylist);
     }
 
     [HttpPost]
-    public ActionResult Edit(Cuisine cuisine)
+    public ActionResult Edit(Stylist stylist)
     {
-      _db.Entry(cuisine).State = EntityState.Modified;
+      _db.Entry(stylist).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      var thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
-      return View(thisCuisine);
+      var thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+      return View(thisStylist);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
-      _db.Cuisines.Remove(thisCuisine);
+      var thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+      _db.Stylists.Remove(thisStylist);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
