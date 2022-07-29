@@ -2,25 +2,25 @@
   Layout = "_Layout";
 }
 
-@using BestRestaurant.Models;
-@model List<BestRestaurant.Models.Restaurant>;
+@using HairSalon.Models;
+@model List<HairSalon.Models.Client>;
 
-<h1>Restaurants</h1>
+<h1>Clients</h1>
 
 @if (@Model.Count == 0)
 {
-  <h3>No restaurants have been added yet!</h3>
+  <h3>No clients have been added yet!</h3>
 } 
 
-@foreach (Restaurant restaurant in Model)
+@foreach (Client client in Model)
 {
-  <li>@Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId }) | @restaurant.Cuisine.Name | </li>
+  <li>@Html.ActionLink($"{client.Name}", "Details", new { id = client.ClientId }) | @client.Sylist.Name | </li>
   <ul>
-    <li>@restaurant.Description</li>
-    <li>@restaurant.Location</li>
+    <li>@client.Description</li>
+    <li>@client.Location</li>
   </ul>
 }
 <br>
-<p>@Html.ActionLink("Add new restaurant", "Create")</p>
+<p>@Html.ActionLink("Add new client", "Create")</p>
 <p>@Html.ActionLink("Back to Home", "Index","Home")</p>
 
