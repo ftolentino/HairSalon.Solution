@@ -47,7 +47,7 @@ cd HairSalon.Solution
 3. Open the terminal and enter the command: *'export PATH="/usr/local/mysql/bin:$PATH"' >> ~/.bash_profile
 4. Download the MySQL Workbench DMG file [here](https://dev.mysql.com/downloads/file/?id=484391) if you haven't already.
 5. Open Local Instance 3306 with the password you set.
-6. Import database file from project directory `joseph_jack(2)` in MySQL Workbench to import database for you to recreate.
+6. Import database file from project directory `filmer_tolentino.sql` in MySQL Workbench to import database for you to recreate.
 
 *  Create `appsettings.json` file in top of project directory and copy in the following, with the password:
 {
