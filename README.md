@@ -1,10 +1,10 @@
-# Hair Salon
+# Eau Claire's Hair Salon
 
 #### Filmer Tolentino
 
 ## Description
 
-Hair Salon is an application allowing a salon owner to create, edit, and store a list of clients organized by which stylist they belong to. 
+Eau Claire's Hair Salon is an application allowing a salon owner to create, edit, and store a list of clients organized by which stylist they belong to. 
 
 
 ## Logistics
