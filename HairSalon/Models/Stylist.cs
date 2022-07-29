@@ -2,15 +2,15 @@ using System.Collections.Generic;
 
 namespace HairSalon.Models
 {
-  public class Cuisine
+  public class Stylist
   {
-    public Cuisine()
+    public Stylist()
     {
-      this.Restaurants = new HashSet<Restaurant>();
+      this.Clients = new HashSet<Client>();
     }
 
-    public int CuisineId { get; set; }
+    public int StylistId { get; set; }
     public string Name { get; set; }
-    public virtual ICollection<Restaurant> Restaurants { get; set; }
+    public virtual ICollection<Client> Clients { get; set; }
   }
 }
